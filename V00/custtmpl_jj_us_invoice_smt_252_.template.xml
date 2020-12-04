@@ -1,0 +1,256 @@
+<!--?xml version="1.0" ?--><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+	<link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+	<#if .locale == "zh_CN">
+		<link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+	<#elseif .locale == "zh_TW">
+		<link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+	<#elseif .locale == "ja_JP">
+		<link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+	<#elseif .locale == "ko_KR">
+		<link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+	<#elseif .locale == "th_TH">
+		<link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+	</#if>
+    <macrolist>
+        <macro id="nlheader">
+            <table align="left" cellspacing="0" id="logoclass"><tr>
+	<td align="left" padding-left="-30px"><img height="33%" src="http://3651382-sb1.shop.netsuite.com/core/media/media.nl?id=16783&amp;c=3651382_SB1&amp;h=bd1d228687e60d525a21" width="33%" /></td>
+	</tr>
+	<tr>
+	<td>
+	<p align="left" style="font-size:8pt;margin-top:-10pt"><u>smartShift Technologies Inc<b>.</b> 6 Liberty Square Suite 2214<b>.</b> Boston MA 02109</u></p>
+	</td>
+	</tr></table>
+
+<table style="width:100%;margin-top:8pt;"><tr>
+	<td class="setbgcolor">${record.billaddress}</td>
+	</tr></table>
+
+<p>&nbsp;</p>
+
+<table align="right" cellspacing="0"><tr>
+	<td style="color: #4284B6; font-size: 30px; font-weight: bold;">Invoice</td>
+	</tr></table>
+
+<table style="width: 100%;"><tr>
+	<th class="Headertitleclass">Invoice #</th>
+	<th width="10px">&nbsp;</th>
+	<th class="Headertitleclass">Order Nr.</th>
+	<th width="10px">&nbsp;</th>
+	<th class="Headertitleclass">Date</th>
+	<th width="10px">&nbsp;</th>
+	<th class="Headertitleclass">Due Date</th>
+	<th width="10px">&nbsp;</th>
+	<th class="Headertitleclass">Terms of Payment</th>
+	</tr>
+	<tr style="width:100%">
+	<td class="Headerbodyclass">${record.tranid}</td>
+	<td width="10px">&nbsp;</td>
+	<td class="Headerbodyclass">${record.otherrefnum}</td>
+	<td width="10px">&nbsp;</td>
+	<td class="Headerbodyclass">${record.trandate?string['dd.MM.yyyy']}</td>
+	<td width="10px">&nbsp;</td>
+	<td class="Headerbodyclass">${record.duedate?string['dd.MM.yyyy']}</td>
+	<td width="10px">&nbsp;</td>
+	<td class="Headerbodyclass">${record.terms}</td>
+	</tr></table>
+        </macro>
+        <macro id="nlfooter">
+            <table width="100%"><tr>
+	<td class="footercontent" style="border-width:1px;" width="50%">PAYMENT BY WIREACH: Bank of America,<br />226 Main St., Cambridge MA, 02142<br />ABA# 026009593 (Wire), ABA 011000138 (ACH)<br />Further Credit to:<br />smartShift Technologies Inc<br />Account# 004626093603</td>
+	<td class="footercontent" width="50%">&nbsp;</td>
+	</tr>
+	<tr>
+	<td class="footercontent" width="70%"></td>
+	</tr></table>
+
+<table width="100%"><tr>
+	<td class="footercontent" style="border-width:1px;" width="100%"><p style="font-size:7pt;">Please exercise professional scepticism regarding requests to change payment instructions. Recent industry scams have included
+incidents where company email accounts are hijacked in order to instruct customers to redirect vendor payments to fraudulent bank
+accounts. Please always verify requests to change payment instructions with multiple sources using contact information not related to
+the payment change request. At smartShift, we will not ask you to change payment instructions frequently. However, you can always
+verify such requests through our main phone number (917) 793-2500 Ex. 5015.</p></td>
+	</tr></table>
+        </macro>
+    </macrolist>
+    <style type="text/css">.questions {
+                border-right: 2px solid black;
+            }
+            .footerclass {
+                color: #008da8;
+                font-size: 10pt;
+            }
+            .footerdataclass {
+                color: #3b3b3b;
+                font-size: 9pt;
+                text-align: left
+            }
+            .footercontent {
+                color: black;
+                font-size: 9pt;
+                text-align: left;
+             	
+            }
+            body {
+                font-family: "Helvetica";
+            }
+            table {
+                border-collapse: collapse;
+                position: static;
+            }
+            th,
+            td {
+                text-align: left;
+                padding: 2px;
+            }
+            .imagetableeven {
+                background-color: #E3e6e8;
+                font-size: 8pt
+            }
+            .imagetableodd {
+                background-color: #E3e6e8;
+                font-size: 8pt
+            }
+            #imagetable th {
+                font-weight: bold;
+                font-size: 8pt;
+                background-color: #4284B6;
+                color: white;
+            }
+            #div2Para {
+                display: table;
+                margin: 0px auto 0px auto;
+                padding: 5px;
+                font-size: 7.6pt;
+                background-color: #E3e6e8;
+            }
+            .style13 {
+                font-size: 9pt;
+                color: #3b3b3b;
+                padding-left: 4px;
+                padding-right: 4px
+            }
+            .Headertitleclass {
+                text-align: left;
+                color: #white;
+                font-weight: 100;
+                font-size: 10pt;
+            }
+            .Headerbodyclass {
+                text-align: left;
+                padding: 6px;
+                background-color: #4284B6;
+                color: #ffffff;
+                font-weight: bold;
+                font-size: 8pt;
+            }
+            .setbgcolor {
+                font: 12pt "Helvetica";
+                width: 35%;
+                padding-top: 5px;
+                padding-left: 5px;
+            }
+            .emptytd {
+                background-color: white;
+            }
+            .headerclass {
+                text-align: left;
+                color: #4284B6;
+                font-weight: 100;
+                font: 10pt "Helvetica";
+                line-height: 1px;
+            }
+            .title {
+                font-size: 30pt;
+                color: #008da8;
+                line-height: 37px;
+            }
+            .titleSub {
+                font-size: 24pt;
+                color: #008DA8;
+            }
+            #instructiontable td,
+            th {
+                padding: 3px
+            }
+            body {
+                font-family: "Helvetica";
+            }
+            .alignclass {
+                text-align: right;
+            }
+            .alignclassnew {
+                display: block;
+            }
+            #div3Para {
+                font-size: 6pt;
+            }
+            .questions {
+                border-right: 2px solid black;
+            }
+</style>
+</head>
+<body header="nlheader" header-height="35%" footer="nlfooter" footer-height="92pt" padding="5mm 0.5in 0.5in 0.5in" size="A4">
+  
+    <#assign x="19%">
+      <#assign trdate= record.trandate>
+        <#assign b= "7/1/2020"?date>
+          <#assign c = "12/31/2020"?date>
+            <#assign d = trdate?date>
+              <#if (d gte b) && ( d lte c) >
+                <#assign x="16%">
+                  </#if>
+                <#if record.item?has_content>
+
+      <table align="center" id="imagetable" style="width: 100%;"><#list record.item as item><#if item_index==0>
+<thead>
+	<tr>
+	<th style="width:500px; font-size:10pt">Description</th>
+	<th style="font-size:10pt;width:90px;">
+	<p align="left">Unit Price</p>
+	</th>
+	<th style="font-size:10pt;width:60px;">
+	<p align="left">Amount</p>
+	</th>
+	</tr>
+</thead>
+</#if><tr class="imagetableodd">
+	<td style="width:500px;;font-size:8pt;line-height: 19px">${item.description}</td>
+	<td style="fond-size:8pt;line-height: 19px;width:120px;">
+	<p align="left">${item.rate}</p>
+	</td>
+	<td style="font-size:8pt;line-height: 19px;width:120px;">
+	<p align="left">${item.amount}</p>
+	</td>
+	</tr>
+	</#list>
+	<!--<tr class="imagetableodd" style="border-top:1px;border-color: white">
+	<td colspan="3" style="max-width:200px;width:140px;font-size:8pt;line-height: 19px">Tax liability of the recipient according to &sect; 13b UStG - Reverse Charge</td>
+	</tr>--></table>
+</#if>
+
+<div>
+<p>&nbsp;</p>
+
+<table id="instructiontable" style="width: 100%;"><tr>
+	<td style="width:60%;">&nbsp;</td>
+	<td style="background-color:#E3e6e8;font-size:8pt;width:50%;">Net Total</td>
+	<td style="background-color:#E3e6e8;font-size:8pt;padding-right:5px;align:right;width:60%;">${record.subtotal}</td>
+	</tr>
+	<!--<tr>
+	<td style="width:60%;">&nbsp;</td>
+	<td style="background-color:#E3e6e8;font-size:8pt;width:50%;">&nbsp;</td>
+	<td style="background-color:#E3e6e8;font-size:8pt;padding-right:5px;align:right;width:60%;">${record.taxtotal}</td>
+	</tr>-->
+	<tr>
+	<td style="width:60%;">&nbsp;</td>
+	<td style="background-color:#E3e6e8;font-size:8pt;width:50%;">Total Amount</td>
+	<td style="background-color:#E3e6e8;font-size:8pt;padding-right:5px;align:right;width:60%;">${record.total}</td>
+	</tr></table>
+
+<p>&nbsp;</p>
+</div>
+</body>
+</pdf>
